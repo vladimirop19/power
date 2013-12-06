@@ -1,12 +1,13 @@
-
-
 /**
  * Created by vladimir on 12/6/13.
  */
+
+
 /**
  *
  * @param {number} num Число, которое возводим в степень
  * @param {number} pow number Показатель степени
+ * @return {Object}
  */
 function power(num, pow) {
   if (typeof(num) === 'number' && typeof(pow) === 'number') {
@@ -16,21 +17,18 @@ function power(num, pow) {
       pow = -pow;
     }
     while (pow > 0) {
-      if (pow % 2 === 0)
-      {
+      if (pow % 2 === 0) {
         pow = pow / 2;
         num = num * num;
-      }
-      else {
+      } else {
         res = res * num;
         pow--;
       }
     }
-    console.log(res);
-  }
-  else {
-    console.error('Несоответствие типов');
+    return res;
+  } else {
+    return 'Несоответствие типов';
   }
 }
 
-power(2, 4);
+console.log(power(2, 4));
